@@ -5,7 +5,7 @@
 
 int main() {
     float signal;
-    float epsilon = 0.0001;
+    float epsilon = 0.0001; // ???
     printf("Введите частоту сигнала: ");
     scanf("%f", &signal);
 
