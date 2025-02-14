@@ -11,7 +11,6 @@ int main() {
         printf("Введите символ от A до Z.\n");
     } else {
         char character = input[0]; 
-        
         if (character >= 'A' && character <= 'Z') {
             printf("Символ '%c' входит в допустимый диапазон.\n", character);
         } else {
