@@ -2,20 +2,15 @@
 #include <string.h>
 
 int main() {
-    char input[100]; 
+    char character; 
 
     printf("Введите один символ (от A до Z): ");
-    scanf("%s", input); 
+    scanf("%с", character); 
 
-    if (strlen(input) != 1) {
-        printf("Введите символ от A до Z.\n");
+    if (character >= 'A' && character <= 'Z') {
+        printf("Символ %c входит в допустимый диапазон.\n", character);
     } else {
-        char character = input[0]; 
-        if (character >= 'A' && character <= 'Z') {
-            printf("Символ '%c' входит в допустимый диапазон.\n", character);
-        } else {
-            printf("Символ '%c' не входит в допустимый диапазон.\n", character);
-        }
+        printf("Символ %c не входит в допустимый диапазон.\n", character);
     }
 
     return 0;
