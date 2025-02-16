@@ -1,62 +1,39 @@
-#include <stdio.h>
+ #include <stdio.h>
+ #include <time.h>
 
-// Ожидаемый старт миссии
+// // Ожидаемый старт миссии
+// // Дата старта миссии задана в виде целого числа (например, 20250210 – 10 февраля 2025 года). 
+//Напишите программу, которая принимает дату от пользователя и проверяет, находится ли она в будущем относительно текущей даты.
 
-// Дата старта миссии задана в виде целого числа (например, 20250210 – 10 февраля 2025 года). Напишите программу, которая принимает дату от пользователя и проверяет, находится ли она в будущем относительно текущей даты.
-
-
-// Кирилл, эту задачу ты решил (если решил) , то супер сложно. Задача состоит из ТРЁХ-ПЯТИ строк
 int main() {
-    int date = 20250210;
+    int date;
+    printf("Введите дату в формате(20250210): ");
+    scanf("%d", &date);
+
     int day = date % 100;
     int month = (date / 100 )% 100;
     int year = ((date / 100 ) / 100) % 10000;
-    int input_date;
     printf("Год: %d\nМесяц: %02d\nДень: %d\n", year, month, day);
 
-    printf("Введите текущую дату: ");
-    scanf("%d", &input_date);
-    printf("Вы ввели: %d\n", input_date);
-
-    int input_day = input_date % 100;
-    int input_month = (input_date / 100 )% 100;
-    int input_year = ((input_date / 100 ) / 100) % 10000;
-
-    if (input_year > year){
-        printf("Вы находитесь в будующем!");
-        return 0;
+    time_t mytime = time(NULL);
+    struct tm now = *localtime(&mytime);
+    
+    int currentDate = now.tm_year + 1900; // Год
+    currentDate = currentDate * 100 + (now.tm_mon + 1); // Месяц
+    currentDate = currentDate * 100 + now.tm_mday; // День
+    printf("Ваша дата: %d\n", currentDate);
+    
+    if (currentDate > date){
+        printf("Вы находитесь в будущем");
     }
-    else if (input_year < year){
-        printf("Вы вообще в прошлом!");
-        return 0;
+    else if (currentDate < date)
+    {
+        printf("Вы находитесь в прошлом");
     }
-    else if (input_year== year){
-        if (input_month > month){
-            printf("Вы находитесь в будующем!");
-            return 0;
-        }
-        else if (input_month < month){
-            printf("Вы в прошлом!");
-            return 0;
-
-        }
-        else if (input_month == month){
-            if (input_day > day){
-                printf("Вы находитесь в будующем!");
-                return 0;
-            }
-            else if (input_day < day){
-                printf("Вы в прошлом!");
-                return 0;
-            }
-            else if (input_day == day){
-                printf("Вы ввели дату начала миссии!");
-                return 0;
-            }
-        }
-
-
+    else{
+        printf("Вы ввели текущую дату");
     }
+    
 
     return 0;
 }
