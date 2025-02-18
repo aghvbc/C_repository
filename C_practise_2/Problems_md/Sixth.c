@@ -1,7 +1,7 @@
 // Создайте структуру `Vehicle`, которая будет хранить информацию о транспортном средстве: 
 // марка (строка), модель (строка), год выпуска (целое число), тип двигателя (перечисление: `Gasoline`, `Diesel`, `Electric`). 
 // Напишите программу, которая будет выводить информацию о нескольких транспортных средствах.
-//
+
 #include <stdio.h>
 
 struct Vehicle {
@@ -32,6 +32,7 @@ int main() {
         printf("Марка машины: %s %s\n", vehicle[i].mark, vehicle[i].model);
         printf("Год выпуска: %d\n",vehicle[i].year_of_release);
         printf("Тип двигателя: %s\n",vehicle[i].type_of_engine);
+        printf("\n");
     }
 
 
