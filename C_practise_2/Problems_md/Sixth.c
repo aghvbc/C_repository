@@ -8,7 +8,7 @@ struct Vehicle {
     char mark[50];
     char model[50];
     int year_of_release;
-    char type_of_engine[50];
+    char type_of_engine[50]; // в этой задаче я хотел видеть перечисление (по условию задачи речь идет об union)
 };
 
 int main() {
