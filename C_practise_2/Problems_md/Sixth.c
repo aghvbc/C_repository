@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-struct Vehicle {
+union Vehicle {
     char mark[50];
     char model[50];
     int year_of_release;
@@ -15,7 +15,7 @@ int main() {
     int choice;
     printf("Введите количество машин: ");
     scanf("%d", &choice);   
-    struct Vehicle vehicle[choice];
+    union Vehicle vehicle[choice];
 
     for(int i = 0; i < choice; i++){
         printf("Введите марку машины: ");
