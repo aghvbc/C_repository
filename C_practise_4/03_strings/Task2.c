@@ -14,8 +14,16 @@
 Подсказка: Используйте strcspn, чтобы найти первую полезную букву.*/
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int main(){
-
+    char signal[] = "*#^&$Привет, СИРИУСЯНЕ!@#$^&*";
+    char symbols[] = "@#$^№&:*;()_";
+    size_t start = strspn(signal, symbols);
+    size_t lenght = strcspn(signal + start, symbols);
+    char *message = strndup(signal + start, lenght);
+    printf("%s\n", message);
+    free(message);
     return 0;
 }
