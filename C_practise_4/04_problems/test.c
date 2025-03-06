@@ -1,19 +1,27 @@
-
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 
-void lower(char *c){
-    for(int i = 0; c[i]; i++){
-       c[i] = tolower(c[i]);
+void removeSpaces(char *str) {
+    char *src = str, *dst = str;
+    
+    while (*src != '\0') {
+        if (!isspace((unsigned char)*src)) {
+            *dst = *src;
+            dst++;
+        }
+        src++;
     }
+    *dst = '\0';
 }
 
-int main() {
-    char c[50] = "MAMO";
-    lower(c);
-    printf("%s", c);
+int main(void) {
+    char text[] = "Это пример   строки с пробелами,\tа также табуляцией и\nпереводами строки.";
+
+    printf("Исходная строка:\n%s\n\n", text);
+    removeSpaces(text);
+    printf("Строка без пробелов:\n%s\n", text);
+
     return 0;
 }
